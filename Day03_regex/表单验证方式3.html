@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="success.html" method="post">
+    用户名:<input type="text" name="username"><span id="msg_username"></span><br>
+    密码:<input type="text" name="password"><span id="msg_password"></span><br>
+    年龄:<input type="text" name="age"><span id="msg_age"></span><br>
+    手机号:<input type="text" name="telephone"><span id="msg_telephone"></span><br>
+    邮箱:<input type="text" name="email"><span id="msg_email"></span><br>
+    <input type="submit" id="submitBtn">
+</form>
+<div></div>
+
+<script type="text/javascript">
+    var flag = false;
+    var usernameInput = document.getElementsByName("username")[0];
+    usernameInput.onblur = function () {
+        var username = usernameInput.value;
+        //验证用户名为6-15位的数字字母下划线
+        var reg_username = /^\w{6,15}$/;
+        if (!reg_username.test(username)) {
+            //表示用户名验证失败
+            flag = false;
+            document.getElementById("msg_username").innerHTML = "用户名为6-15位的数字字母下划线"
+        } else {
+            flag = true;
+            document.getElementById("msg_username").innerHTML = "";
+        }
+    };
+
+    var passwordInput = document.getElementsByName("password")[0];
+    passwordInput.onblur = function () {
+        var password = passwordInput.value;
+        //验证密码为6-15位的数字字母下划线,不能以数字开头
+        var reg_password = /^[a-zA-Z_]\w{5,14}$/;
+        if (!reg_password.test(password)) {
+            //表示用户名验证失败
+            flag = false;
+            document.getElementById("msg_password").innerHTML = "密码为6-15位的数字字母下划线,不能以数字开头";
+        } else {
+            flag = true;
+            document.getElementById("msg_password").innerHTML = "";
+        }
+    };
+
+    var ageInput = document.getElementsByName("age")[0];
+    ageInput.onblur = function () {
+        var age = ageInput.value;
+        var reg_age = /^(1[89]|[2-9][0-9])$/;
+        if (!reg_age.test(age)) {
+            document.getElementById("msg_age").innerHTML = "年龄必须在18-99之间"
+            flag = false;
+        }else{
+            flag = true;
+            document.getElementById("msg_age").innerHTML = "";
+        }
+    };
+
+    var telephoneInput = document.getElementsByName("telephone")[0];
+    telephoneInput.onblur = function(){
+        var telephone = telephoneInput.value;
+        var reg_telephone = /^1[3,9]\d{9}$/;
+        if (!reg_telephone.test(telephone)){
+            document.getElementById("msg_telephone").innerHTML = "请输入正确的手机号码";
+            flag = false;
+        }else{
+            flag = true;
+            document.getElementById("msg_telephone").innerHTML = "";
+        }
+    };
+
+    var emailInput = document.getElementsByName("email")[0];
+    emailInput.onblur = function () {
+        var email = emailInput.value;
+        var reg_email = /^\w+@\w+\.(com|cn|net)$/;
+        if (!reg_email.test(email)){
+            document.getElementById("msg_email").innerHTML = "请输入正确的邮箱";
+            flag = false;
+        }else{
+            flag = true;
+            document.getElementById("msg_email").innerHTML = "";
+        }
+    };
+
+    var submitBtn = document.getElementById("submitBtn");
+    submitBtn.onclick = function () {
+        return flag;
+    };
+</script>
+</body>
+</html>

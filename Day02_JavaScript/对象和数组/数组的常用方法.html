@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /**
+     * 数组的常用方法：
+     * push()：在数组的尾部添加一个数据
+     * pop()：将数组中最后一个元素弹出（原数组中就没有这个元素了）
+     * reverse()：将数组中的元素反转，并返回新数组
+     * join(str)：以str将数组中的每个元素进行拼接，将拼接之后的字符串返回，若未设置str，则默认以逗号“,”拼接
+     * splice(start,deletCount,newData) 表示从start下标开始删除，总共删除deleteCount个元素
+     *
+     * 字符串方法：
+     * split(str)：将字符串以str进行分割，分割之后的每个部分放在数组中返回
+     */
+    var arr = [0,1,2,3,4,5];
+    console.log(arr.reverse());
+    console.log(arr.join("-"));
+    var ss = "hello,world";
+    console.log(ss.split(",").join("-"))
+    arr.push(100);
+    for (var i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }
+    arr.pop();
+    for (var i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }
+    arr.splice(3,0,1000);
+    console.log(arr)
+    arr.splice(1,2);
+    console.log(arr);
+</script>
+</body>
+</html>

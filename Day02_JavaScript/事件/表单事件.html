@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="testId">
+<script type="text/javascript">
+    var testId = document.getElementById("testId");
+    testId.onblur = function(){
+        // alert("失去焦点");
+    };
+    testId.onfocus = function(){
+        // alert("获得焦点");
+    };
+    testId.onchange = function(){
+        alert("内容改变");
+    };
+</script>
+</body>
+</html>

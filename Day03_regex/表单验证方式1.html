@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="success.html" method="post">
+    用户名:<input type="text" name="username"><br>
+    密码:<input type="text" name="password"><br>
+    年龄:<input type="text" name="age"><br>
+    性别:<input type="radio" name="gender" value="男">男
+    <input type="radio" name="gender" value="女">女<br>
+    手机号:<input type="text" name="telephone"><br>
+    邮箱:<input type="text" name="email"><br>
+    <input type="submit" id="submitBtn"><br>
+</form>
+
+<script type="text/javascript">
+    var submitBtn = document.getElementById("submitBtn");
+    submitBtn.onclick = function(){
+        var username = document.getElementsByTagName("username")[0].value;
+        //验证用户名为6-15位的数字字母下划线
+        var reg_username = /^\w{6-15}$/;
+        if(!reg_username.test(username)){
+            //表示用户名验证失败
+            alert("用户名为6-15位的数字字母下划线");
+            return false;
+        }
+    };
+
+</script>
+</body>
+</html>

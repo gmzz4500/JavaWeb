@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="点击" v-on:click="testClick()">
+    <input type="button" value="点击" @click="testClick('你好')">
+</div>
+
+<script type="text/javascript" src="../js/vue.js"></script>
+<script>
+    /**
+     * v-if可以通过vue中的模型数据作为条件判断，确定该标签是否在页面中存在
+     * v-show可以通过vue中的模型数据作为条件判断，确定该标签是否在页面中显示
+     *
+     * 页面中隐藏的元素：
+     * 1、head
+     * 2、隐藏域<input type="hidden">
+     * 3、设置了样式display:none的标签，特点隐藏不占位置
+     * 4、设置了样式visibility: hidden的标签，特点隐藏占位置
+     */
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            message:"hello"
+        },
+        methods:{
+            /*testClick:function () {
+                alert(this.message);
+            }*/
+            testClick(message){
+                alert(this.message);
+            }
+
+        }
+    });
+</script>
+</body>
+</html>

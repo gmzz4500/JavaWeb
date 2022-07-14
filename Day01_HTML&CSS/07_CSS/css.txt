@@ -1,0 +1,24 @@
+1.css的三种用法
+1)行内样式,在标签中直接通过样式属性设置的样式  (这种方式不太好使)
+<标签名 style="样式属性:样式属性值;样式属性:样式属性值;"></标签名>
+
+2)内嵌样式,在head标签的style标签中所编写的样式
+<style type="text/css">
+    #testId{color:greenyellow;}
+    /*
+        .testClass{background-color:blue;border:1px solid red;}
+    */
+    h2{text-align:center;}
+    h2,.testClass{font-size:32px;font-weight:bolder;}
+    *{border:1px solid #000;}
+</style>
+
+3)外部样式,在head标签中link标签引入外部的css文件
+<link rel="stylesheet" href="test.css">
+
+2.css选择器:匹配页面中的标签
+id选择器:通过id属性匹配页面中的标签,格式:#id{}
+class选择器:通过class属性匹配页面中的标签,格式:.class{}
+标签选择器:通过标签名匹配页面的标签,格式:标签名{}
+群组选择器:通过多个选择器匹配一组(群)标签,格式:选择器1,选择器2,选择器3{}
+全局选择器:匹配页面中所有标签,格式:*{}

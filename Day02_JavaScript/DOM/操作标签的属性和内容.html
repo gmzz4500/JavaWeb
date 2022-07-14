@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" id="testId">
+<input type="button" value="点击" id="btn">
+
+<div>
+
+</div>
+
+<script type="text/javascript">
+
+    /**
+     * 操作标签对象中属性：
+     * 取值：对象.属性
+     * 赋值：对象.属性 = 值
+     *
+     * 操作双标签中的内容使用innerText和innerHTML
+     * innerText：操作双标签中的文本内容
+     * innerHTML：操作双标签中的所有内容（包括文本和标签）
+     */
+
+    var btn = document.getElementById("testId");
+    btn.onclick = function(){
+        //获取id为testId的标签的id属性
+        var testId = document.getElementById("testId");
+        console.log(testId.id);
+        //获取id为testId的标签的value属性
+        console.log(testId.value);
+        //为id为testId的标签的value属性赋值
+        // testId.vale = "hello";
+        // testId.type = "button";
+        console.log(testId.value);
+        //获取div标签中的内容
+        var div = document.getElementsByTagName("div")[0];
+        console.log(div.innerText);
+        console.log(div.innerHTML);
+        // div.innerHTML = "<h1>hello</h1>";
+        div.innerText = "<h1>hello</h1>"
+    };
+</script>
+</body>
+</html>

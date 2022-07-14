@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .testClass{
+            font-size: 48px;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+
+<a href="">充值</a><br>
+<img src="img/yin.gif">
+
+<script type="text/javascript">
+    var a = document.getElementsByTagName("a")[0];
+    a.onmouseover = function () {
+        a.className = "testClass";
+    };
+    a.onmouseout = function () {
+        a.className = "";
+    };
+    var img = document.getElementsByTagName("img")[0];
+    img.onmouseover = function () {
+        img.src = "img/jf.gif";
+    };
+    img.onmouseout = function(){
+        img.src = "img/yin.gif";
+    };
+</script>
+</body>
+</html>

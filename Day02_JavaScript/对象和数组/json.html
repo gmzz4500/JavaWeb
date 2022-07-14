@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /**
+     * json的格式：
+     * json对象：{key:value,key:value...}
+     * json数组：[value,value...]
+     * json的解析方式：
+     * json对象：对象.key
+     * json数组：for循环，下标
+     */
+    var person = {
+        name:"张三丰",
+        age:198,
+        wife:{
+            wifeName:"小花",
+            wifeAge:18,
+            wifeAddress:"武当山下的小村庄," ,
+            sons:[
+                {
+                    sonName:"奥巴马",
+                    sonAge:2
+                },
+                {
+                    sonName:"奥拉夫",
+                    sonAge:3
+                }
+            ]
+        },
+        address:"武当山"
+    };
+    var wife = person.wife;
+    var sons = wife.sons;
+    for (var i = 0; i < sons.length; i++) {
+        console.log(sons[i].sonName+"==="+sons[i].sonAge);
+    };
+
+</script>
+</body>
+</html>

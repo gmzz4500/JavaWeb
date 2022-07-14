@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    1.函数声明
+    格式:function 函数名(参数列表){函数体}
+    2.函数表达式
+    格式:var 变量名 = function(参数列表){函数体}
+    此时,变量名就相当于函数名
+-->
+    <script type="text/javascript">
+        function test01(a,b) {
+            alert(a+b);
+        }
+        var test02 = function (a,b){
+            return a/b;
+        };
+        console.log(test02(5,2));
+    </script>
+</body>
+</html>

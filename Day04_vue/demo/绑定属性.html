@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .testClass{width:100px;height: 100px;}
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-bind:value="username" v-bind:class="inputClass">
+    <input type="text" :value="username" :class="inputClass">
+</div>
+
+
+<script type="text/javascript" src="../js/vue.js"></script>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            username:"admin",
+            inputClass:"testClass"
+        }
+    });
+</script>
+</body>
+</html>

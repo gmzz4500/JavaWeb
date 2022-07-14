@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <span v-if="flag">hello</span>
+    <!--<span style="display: none">你好</span><span>你好</span>
+    <span style="visibility: hidden">你好</span><span>你好</span>-->
+    <span v-else="flag">尚硅谷</span>
+</div>
+
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            flag:true
+        }
+    });
+</script>
+</body>
+</html>

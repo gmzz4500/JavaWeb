@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="按钮1" onclick="fn1()">
+<input type="button" value="按钮2" id="btn">
+
+<script type="text/javascript">
+    //当被点击是要调用的函数
+    function fn1() {
+        alert("生日快乐~")
+    }
+
+    //1.先根据id获取标签
+    var btn = document.getElementById("btn");
+    //2.设置btn的onclick属性(绑定事件)
+    //绑定命名函数
+    // btn.onclick = fn1;
+    //绑定匿名函数
+    btn.onclick = function fn() {
+        console.log("祝你生日快乐~")
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" id="testId">
+<input type="text" class="testClass">
+<input type="text" class="testClass">
+<input type="text" class="testClass">
+<input type="text" name="testName">
+<input type="text" name="testName">
+<input type="text">
+
+<script type="text/javascript">
+    /**
+     * document.querySelector("选择器")：通过选择器获取所匹配的第一个标签对象
+     * document.querySelectorAll("选择器")：通过选择器获取所匹配的所有标签对象的数组
+     */
+
+    //获取页面中id为testId的标签
+    var testId = document.querySelector("#testId");
+    console.log(testId);
+
+    //获取页面中所有的input标签
+    var inputs = document.querySelectorAll("input");
+    console.log(inputs);
+</script>
+</body>
+</html>

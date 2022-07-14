@@ -1,0 +1,38 @@
+form标签描述一个表单,用于收集用户锁输入或选择的数据,提交到指定地址
+属性:
+action:设置提交到的资源的路径
+method:设置表单提交方式,get(默认) 或者 post
+get和post的区别:
+1.以get和post方式提交时,传输的数据的位置不同
+get提交方式:会将提交的数据以?拼接在所提交的地址后
+格式:提交的地址?name=value&name=value
+post提交方式:会将提交的数据放在请求报文的请求体中传输
+格式:name=value&name=value
+2.get传输的数据量较小,post传输的数据量较大,可以认为无限制
+3.文件上传只能使用post,且表单必须设置属性enctype="multipart/form-data"
+
+常用的表单项标签:
+<input type="text">:描述一个单行文本框
+<input type="password">:描述一个密码框
+<input type="radio">:描述一个单选框
+注意:描述相同功能的单选框,必须保证拥有相同的name属性值,才可以实现单选
+<input type="checkbox">:描述一个复选框
+<input type="file">:描述一个文件域
+<input type="hidden">:描述一个隐藏域
+<select>
+    <option></option>
+</select>:描述一个下拉列表框
+<textarea></textarea>:描述一个文本域(多行文本框)
+<input type="submit">:描述一个提交按钮,可以提交表单,按钮上默认展示提交,可以通过value属性设置按钮展示的内容
+<input type="reset">:描述一个重置按钮,可以将表单恢复到最初状态,按钮上默认展示重置,可以通过value属性设置按钮展示的内容
+<input type="button">:描述一个空按钮,没有任何功能,必须通过value属性设置按钮展示的内容
+<button></button>:描述一个按钮,可以通过type="submit(默认)或reset或button"设置相应的功能,必须通过value属性设置按钮展示的内容
+
+表单如何提交数据?
+表单相必须设置name属性和value属性,当表单提交是,表单项的数据会以name=value&name=value...的方式提交到指定地址
+单行文本框,密码框,文本域不需要手动设置value属性,用户输入的内容就是value属性值
+文件域不需要手动设置value属性,value的默认值是用户所选择的文件的文件名
+单选框和复选框必须设置value,否则传输的数据为on
+下拉列表框的option标签若没有设置value,会默认将option标签中的内容作为value
+若提交的数据和option标签中的内容不一致时,则必须设置value
+

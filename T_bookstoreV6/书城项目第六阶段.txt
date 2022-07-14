@@ -1,0 +1,58 @@
+订单模块的功能：
+bs_order(id,create_time,total_count,total_amount,status,user_id)
+bs_orderitem(id,book_name,price,img_path,count,amount,order_id)
+客户端
+1、结账
+将session中共享的购物车信息转换为数据库中的订单信息
+将购物车中的购物项转换为数据库中的订单项
+2、收货
+status(0:未发货|1:已发货|2:交易完成)
+收货：status由1-->2
+3、我的订单
+4、订单详情
+
+管理端
+1、发货
+status(0:未发货|1:已发货|2:交易完成)
+收货：status由0-->1
+2、查询所有订单
+3、订单详情
+
+解决结账的事务问题：
+结账：1、保存订单   2、保存订单项   3、更新图书的库存和销量
+1、模拟场景：结账第2步保存订单项有异常，观察最终的结果，第1、2、3步骤能否成功
+结果：第1和3步成功，第2步失败，结账之后可以正常跳转到结账成功页面
+原因：在BaseDao中，在执行sql语句时，都使用try...catch...捕获的异常，因此不会对异常之后的代码造成影响
+2、目标：当结账的过程中，若其中某个步骤失败，则失败之后的代码都不执行
+解决方案：在BaseDao中，执行各个sql语句的方法中，在try...catch...结构的catch中，手动抛异常
+throw new RuntimeException(e);
+3、目标：使用事务相关代码解决问题
+在JDBC中实现事务的步骤：
+connection.setAutoCommit(false);
+try{
+    //jdbc
+    connection.commit();
+}catch(){
+    connection.rollback();
+}
+实现事务的代码不能写在dao中，dao中一个方法表示一个sql的执行，不一定表示一个完整的功能
+应该将事务的代码写在service层
+但是service层所有的方法都需要处理事务，因此代码量巨大
+又因为事务代码不是连续执行的代码，因此不能使用OOP（面向对象）进行封装
+将事务的代码提取到filter中，通过chain.doFilter()放行的方法，表示当前每个servlet的访问，即每个功能的实现过程
+4、创建TransactionFilter处理事务
+结果：结账第2步有异常，但是在TransactionFilter并没有执行catch中，即并没有捕获到异常
+原因：在功能执行的过程中，ModelBaseServlet在执行时，对异常进行了捕获
+解决方案：在try...catch...结构的catch中，手动抛异常
+throw new RuntimeException(e);
+5、手动抛异常之后，在TransactionFilter中就可以捕获到异常了
+但是，经过测试，结账的功能并没有回滚
+原因：在TransactionFilter中操作的Connection对象，和BaseDao中执行sql时的Connection对象不是同一个
+使用ThreadLocal解决问题
+ThreadLocal本质就是一个map集合，默认以当前线程为键，以某个数据为值
+因此在当前线程中，任何位置获取的数据都是同一个
+set():在ThreadLocal中存储数据
+get():获取ThreadLocal中的数据
+remove():删除ThreadLocal中的数据
+注意：BaseDao中，执行完sql语句，不能将Connection对象关闭
+

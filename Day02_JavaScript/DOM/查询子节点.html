@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    <li>张三</li>
+    <li>李四</li>
+    <li>王五</li>
+    <li>赵六</li>
+    <li>田七</li>
+</ul>
+
+<input type="text" id="testId">
+<div>
+    <input type="text">
+</div>
+
+<script type="text/javascript">
+    /**
+     * element.children：获取指定标签的所有子标签对象的数组
+     * element.firstElementChild：获取指定标签的第一个子标签对象
+     * element.lastElementChild：获取指定标签的最后一个子标签对象
+     * element.parentElement：获取指定标签的父标签对象
+     */
+
+    //获取ul标签中所有的子标签
+    var ul = document.getElementsByTagName("ul")[0];
+    var lis = ul.children;
+    console.log(lis);
+
+    //获取ul中的第一个子标签
+    var firstLi = ul.firstElementChild;
+
+    //获取ul中最后一个子标签
+    var lastLi = ul.lastElementChild;
+
+    //获取ul标签的父标签
+    var parent = ul.parentElement;
+    console.log(parent);
+
+    // 获取id为testId标签的前一个兄弟标签
+    var testId = document.getElementById("testId");
+    var prev = testId.previousElementSibling;
+    console.log(prev);
+
+    //获取id为testId标签的下一个兄弟标签
+    var next = document.getElementsByTagName("script")[0].nextElementSibling;
+    console.log(next);
+</script>
+</body>
+</html>

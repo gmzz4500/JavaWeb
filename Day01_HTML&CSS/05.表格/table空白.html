@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>table_blank</title>
+</head>
+<body>
+<!--
+    table描述一个表格
+    tr描述表格中的一行
+    td描述一行中的一列
+    th描述表头中的一列,该列的内容会自动加粗并居中
+
+    可以在td,th中设置合并行和合并列
+    rowspan:合并行
+    colspan:合并列
+    cellpadding 单元格边距
+    cellspacing 单元格间距
+-->
+<table border="1" cellpadding="10" cellspacing="0">
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄</th>
+    </tr>
+    <tr>
+        <td>1001</td>
+        <td rowspan="2" colspan="2">张三</td>
+        <td>男</td>
+        <td>20</td>
+    </tr>
+    <tr>
+        <td>1002</td>
+        <td>李四</td>
+        <td>女</td>
+        <td>18</td>
+    </tr>
+    <tr>
+        <td>1003</td>
+        <td>王五</td>
+        <td colspan="2">女</td>
+        <td>30</td>
+    </tr>
+
+</table>
+   
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /**
+    * JavaScript数组的创建方式：
+    * var arr = new Array(5);
+    * var arr = [1,"hello",true,new Date()];
+    *
+    * JavaScript数组的特点：
+    * 1、JavaScript数组中可以存放任意类型的数据
+    * 2、JavaScript数组的长度不固定，最终的长度由操作数组的最大下标决定
+    * 3、JavaScript数组中某个元素若未赋值，则默认值为undefined
+    */
+    //var arr = new Array(5);
+    var arr = [1,"hello",true,new Date()];
+    console.log(arr[2]);
+    arr[7] = 100;
+    console.log(arr.length);
+    for (var i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }
+</script>
+</body>
+</html>

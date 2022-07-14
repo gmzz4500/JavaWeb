@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /**
+     * this关键字：
+     * 在函数外表示window对象
+     * 在函数内表示调用函数的对象
+     */
+    console.log(this);
+    function getName(){
+        console.log(this.name);
+    }
+    var obj1 = {
+        name:"张三",
+        getName:getName
+    };
+    var obj2 = {
+        name:"李四",
+        getName:getName
+    };
+    obj2.getName();
+</script>
+</body>
+</html>

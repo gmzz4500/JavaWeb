@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        td,tr{width:100px;text-align: center}
+    </style>
+</head>
+<body>
+<table border="1" cellspacing="0" cellpadding="0">
+    <tr>
+        <th colspan="4">学生信息表</th>
+    </tr>
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td>001</td>
+        <td>张三</td>
+        <td>男</td>
+        <td>
+            <input type="button" value="删除" onclick="deleteStu(this)">
+        </td>
+    </tr>
+    <tr>
+        <td>002</td>
+        <td>李四</td>
+        <td>女</td>
+        <td>
+            <input type="button" value="删除" onclick="deleteStu(this)">
+        </td>
+    </tr>
+    <tr>
+        <td>002</td>
+        <td>李四</td>
+        <td>女</td>
+        <td>
+            <input type="button" value="删除" onclick="deleteStu(this)">
+        </td>
+    </tr>
+    <tr>
+        <td>003</td>
+        <td>王五</td>
+        <td>女</td>
+        <td>
+            <input type="button" value="删除" onclick="deleteStu(this)">
+        </td>
+    </tr>
+</table>
+学号:<input type="text" id="stuId"><br>
+姓名:<input type="text" id="stuName"><br>
+性别:<input type="text" id="stuGender"><br>
+<input type="button" value="添加" id="addBtn"><br>
+<script type="text/javascript">
+function deleteStu(btn) {
+    if (confirm("您确认要删除吗?")){
+        btn.parentElement.parentElement.remove();
+    }
+}
+var addBtn = document.getElementById("addBtn");
+addBtn.onclick = function () {
+    //获取学生信息
+    var stuId = document.getElementById("stuId").value;
+    var stuName = document.getElementById("stuName").value;
+    var stuGender = document.getElementById("stuGender").value;
+    //创建一个标签
+    var tr = document.createElement("tr");
+    //为tr标签赋值
+    tr.innerHTML = '<td>' + stuId + '</td><td>' + stuName + '</td><td>' + stuGender + '</td><td><input type="button" value="删除" onclick="deleteStu(this)"></td>'
+    //获取table标签
+    var table = document.getElementsByTagName("table")[0];
+    // table.appendChild(tr);
+    var newTr = table.getElementsByTagName("tr")[2];
+    console.log(newTr);
+    table.insertBefore(tr,newTr);
+    // table.appendChild(tr);
+    //清空输入框
+    document.getElementById("stuId").value="";
+    document.getElementById("stuName").value="";
+    document.getElementById("stuGender").value="";
+}
+</script>
+</body>
+</html>

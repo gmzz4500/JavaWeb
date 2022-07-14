@@ -1,0 +1,5 @@
+#testId{color: greenyellow;}
+/*.testClass{background-color: blue; border: 1px solid red;}*/
+h2{text-align: center;}
+h2,.testClass{font-size: 32px; font-weight: bolder;}
+*{border: 1px solid #000;}

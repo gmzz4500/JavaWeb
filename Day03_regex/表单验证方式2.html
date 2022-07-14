@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="success.html" method="post">
+    用户名:<input type="text" name="username"><span id="msg_username"></span><br>
+    密码:<input type="text" name="password"><span id="msg_password"></span><br>
+    年龄:<input type="text" name="age"><br>
+    性别:<input type="radio" name="gender" value="男">男
+    <input type="radio" name="gender" value="女">女<br>
+    手机号:<input type="text" name="telephone"><br>
+    邮箱:<input type="text" name="email"><br>
+    <input type="submit" id="submitBtn">
+</form>
+<div></div>
+
+<script type="text/javascript">
+    var submitBtn = document.getElementById("submitBtn");
+    submitBtn.onclick = function (){
+        var flag = true;
+        var username = document.getElementsByName("username")[0].value;
+        //验证用户名为6-15位的数字字母下划线
+        var reg_username = /^\w{6,15}$/;
+        if (!reg_username.test(username)){
+            //表示用户名验证失败
+            document.getElementById("msg_username").innerHTML = "用户名为6-15位的数字字母下划线";
+            flag = false;
+        }else{
+            //表示用户名验证成功
+            document.getElementById("msg_username").innerHTML="";
+        }
+
+        var password = document.getElementsByName("password")[0].value;
+        //验证密码为6-15位的数字字母下划线,不能以数字开头
+        var reg_password = /^[a-zA-Z_]\w{5,14}$/;
+        if(!reg_password.test(password)){
+            //表示密码验证失败
+            document.getElementById("msg_password").innerHTML = "密码为6-15位的数字字母下划线,不能以数字开头";
+            flag = false;
+        }else{
+            document.getElementById("msg_password").innerHTML="";
+        }
+        return flag;
+
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <form action="">
+        用户名:<input type="text" v-model:value="user.username"><br>
+        密码:<input type="text" v-model="user.password"><br>
+    </form>
+</div>
+
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    /**
+     * 双向绑定和属性绑定
+     * 属性绑定通过vue渲染页面中标签的属性
+     * 双向绑定只针对value属性,既可以通过vue渲染页面中标签中的value属性
+     * 在页面中,当用户手动输入更新了value之后,也会反向更新vue中相应的模型数据
+     * @type {Vue}
+     */
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            username:"张三",
+            password:"123456",
+            user:{
+                username:"",
+                password:""
+            }
+        }
+    });
+</script>
+</body>
+</html>

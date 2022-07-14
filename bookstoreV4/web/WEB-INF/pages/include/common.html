@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>公共页面</title>
+</head>
+<body>
+    <div th:fragment="manager_head">
+        <a th:href="@{/BookServlet(method='getAllBook')}" class="order">图书管理</a>
+        <a href="#" class="destory">订单管理</a>
+        <a th:href="@{/}" class="gohome">返回商城</a>
+    </div>
+</body>
+</html>

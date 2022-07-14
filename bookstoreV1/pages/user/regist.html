@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>尚硅谷会员注册页面</title>
+    <link type="text/css" rel="stylesheet" href="../../static/css/style.css" />
+    <link rel="stylesheet" href="../../static/css/register.css" />
+    <style type="text/css">
+      .login_form {
+        height: 420px;
+        margin-top: 25px;
+      }
+      .message{
+        font-size: 12px;
+        color: red;
+        margin: 2px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="login_header">
+      <a href="../../index.html">
+        <img class="logo_img" alt="" src="../../static/img/logo.gif" />
+      </a>
+    </div>
+
+    <div class="login_banner">
+      <div class="register_form">
+        <h1>注册尚硅谷会员</h1>
+        <form action="regist_success.html">
+          <div class="form-item">
+            <div>
+              <label>用户名称:</label>
+              <input v-model="user.username" type="text" placeholder="请输入用户名" @change="checkUsername()"/>
+            </div>
+            <span class="message" v-text="usernameError"></span>
+          </div>
+          <div class="form-item">
+            <div>
+              <label>用户密码:</label>
+              <input v-model="user.password" type="password" placeholder="请输入密码" @change="checkPassword()"/>
+            </div>
+            <span class="message" v-text="passwordError"></span>
+          </div>
+          <div class="form-item">
+            <div>
+              <label>确认密码:</label>
+              <input v-model="user.passwordConfirm" type="password" placeholder="请输入确认密码" @change="checkPasswordConfirm()"/>
+            </div>
+            <span class="message" v-text="passwordConfirmError"></span>
+          </div>
+          <div class="form-item">
+            <div>
+              <label>用户邮箱:</label>
+              <input v-model="user.email" type="text" placeholder="请输入邮箱" @change="checkEmail()"/>
+            </div>
+            <span class="message" v-text="emailError"></span>
+          </div>
+          <div class="form-item">
+            <div>
+              <label>验证码:</label>
+              <div class="verify">
+                <input type="text" placeholder="请输入验证码" />
+                <img src="../../static/img/code.bmp" alt="" />
+              </div>
+            </div>
+            <span class="message"></span>
+          </div>
+          <button class="btn" @click="registUser()">注册</button>
+        </form>
+      </div>
+    </div>
+    <div id="bottom">
+      <span>
+        尚硅谷书城.Copyright &copy;2015
+      </span>
+    </div>
+
+  <script type="text/javascript" src="../../static/script/vue.js"></script>
+    <script type="text/javascript">
+      var vue = new Vue({
+        el:".login_banner",
+        data:{
+          user:{
+            username:"",
+            password:"",
+            passwordConfirm:"",
+            email:""
+          },
+          usernameError:"",
+          passwordError:"",
+          passwordConfirmError:"",
+          emailError:""
+        },
+        methods:{
+          checkUsername(){
+            var reg_username = /^\w{6,15}$/;
+            if (!reg_username.test(this.user.username)){
+              this.usernameError = "用户名为6-15位的数字字母下划线";
+              event.preventDefault();
+            }else{
+              this.usernameError = "";
+            }
+          },
+          checkPassword(){
+            var reg_password = /^[a-zA-Z_]\w{5,17}$/;
+            if (!reg_password.test(this.user.password)){
+              this.passwordError = "密码为6-18位的数字字母下划线,不能以数字开头";
+              event.preventDefault();
+            }else{
+              this.passwordError = ""
+            }
+          },
+          checkPasswordConfirm(){
+            if(this.user.password != this.user.passwordConfirm){
+              this.passwordConfirmError = "两次输入密码不一致";
+              event.preventDefault();
+            }else{
+              this.passwordConfirmError = "";
+            }
+          },
+          checkEmail(){
+            var reg_email = /^\w+@\w+\.(com|net|cn)$/;
+            if(!reg_email.test(this.user.email)){
+              this.emailError = "邮箱地址格式不正确";
+              event.preventDefault();
+            }else{
+              this.emailError = "";
+            }
+          },
+          registUser(){
+            this.checkUsername();
+            this.checkPassword();
+            this.checkPasswordConfirm();
+            this.checkEmail();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

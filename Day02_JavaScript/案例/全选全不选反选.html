@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--定义几个复选框-->
+<input type="checkbox" class="ck">
+<input type="checkbox" class="ck">
+<input type="checkbox" class="ck">
+<input type="checkbox" class="ck">
+<input type="checkbox" class="ck">
+<input type="checkbox" class="ck">
+<input type="checkbox" class="ck">
+<input type="checkbox" class="ck">
+<input type="checkbox" class="ck">
+<br>
+<!--定义三个功能按钮-->
+<input type="button" value="全选" id="qxBtn">
+<input type="button" value="全不选" id="qbxBtn">
+<input type="button" value="反选" id="fxBtn">
+<input type="checkbox" id="selectAll">
+<script type="text/javascript">
+// 根据id属性获取 全选 标签对象
+    var qxBtn = document.getElementById("qxBtn");
+    //给 全选 标签 点击 功能
+    qxBtn.onclick = function () {
+        var cks = document.getElementsByClassName("ck");
+        for (var i = 0; i < cks.length; i++) {
+            cks[i].checked = true;
+        }
+    };
+//    根据id属性获取 全不选 标签对象
+    var qbxBtn = document.getElementById("qbxBtn");
+    qbxBtn.onclick = function () {
+        var cks = document.getElementsByClassName("ck");
+        for (var i = 0; i < cks.length; i++) {
+            cks[i].checked = false;
+        }
+    };
+    //反选
+    var fxBtn = document.getElementById("fxBtn");
+    fxBtn.onclick = function () {
+        var cks = document.getElementsByClassName("ck");
+        for (var i = 0; i < cks.length; i++) {
+            if(cks[i].checked){
+                cks[i].checked = false;
+            }else{
+                cks[i].checked = true;
+            }
+        }
+    };
+    //selectAll
+    var selectAll = document.getElementById("selectAll");
+    selectAll.onclick = function () {
+        var cks = document.getElementsByClassName("ck");
+        for (var i = 0; i < cks.length; i++) {
+            cks[i].checked = selectAll.checked;
+        }
+    };
+
+</script>
+</body>
+</html>

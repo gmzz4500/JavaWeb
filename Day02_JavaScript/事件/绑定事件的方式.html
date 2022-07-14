@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="点击" id="btn">
+<input type="button" value="点击" onclick="test()">
+
+<script type="text/javascript">
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+        alert("hello");
+    };
+    function test(){
+        alert("hello");
+    }
+</script>
+</body>
+</html>

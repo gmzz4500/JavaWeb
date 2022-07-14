@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <p>展示的信息:{{message}}</p>
+    <p v-text="message">aaaaaa</p>
+    <h1>{{message}}</h1>
+    <span>{{message}}</span>
+    <div>{{message}}</div>
+</div>
+
+<script type="text/javascript" src = "../js/vue.js"></script>
+<script>
+    /**
+     * 1、引入vue.js文件
+     * 2、在页面中设置vue的挂载容器
+     * 3、创建vue对象
+     * 4、设置vue对象的参数信息
+     *  el:通过选择器设置vue的挂载容器
+     *  data:设置vue中的模型数据，可以在挂载容器中使用指定的方式访问vue中的数据模型
+     *  {{message}}：插值表达式
+     *  v-text：绑定文本，访问vue的模型数据，将值显示在标签中，会将标签中原内容覆盖
+     *
+     *  注意：不建议使用body作为vue的挂载容器
+     */
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            message:"hello,vue"
+        }
+    });
+</script>
+</body>
+</html>

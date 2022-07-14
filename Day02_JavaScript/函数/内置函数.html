@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="点击购买" id="btn">
+<input type="text">
+<script type="text/javascript">
+    /**
+     * JavaScript中的三种弹出框:
+     * 1.alert():弹出一个警告框
+     * 2.confirm():弹出一个确认提示框
+     * 3.prompt():弹出一个提示输入框
+     * 4.console.log():将内容以日志的方式输出到浏览器的控制台
+     */
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+        /*if(confirm("确认删除吗?")){
+            alert("删除成功");
+        }else{
+            alert('已取消操作');
+        }*/
+        // prompt("请输入要购买的数量","1");
+        // prompt("","请输入要购买的数量")
+        console.log(new Date().toLocaleString())
+    }
+</script>
+</body>
+</html>

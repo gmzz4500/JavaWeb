@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" id="testId">
+<input type="text" class="testClass">
+<input type="text" class="testClass">
+<input type="text" class="testClass">
+<input type="text" name="testName">
+<input type="text" name="testName">
+<input type="text">
+
+<script type="text/javascript">
+    /**
+     * document.getElementById("id")：根据id属性获取页面的某个标签，若id相同的标签有多个，只能获取第一个
+     * document.getElementsByTagName("标签名")：通过标签名获取所有匹配的标签对象所组成的数组
+     * document.getElementsByClassName("class")：通过class属性获取所有匹配的标签对象所组成的数组
+     * document.getElementsByName("name")：通过name属性获取所有匹配的标签对象所组成的数组
+     */
+    //获取页面中id为testId的标签
+    var testId = document.getElementById("testId");
+    console.log(testId);
+
+    //获取页面中所有的input标签
+    var inputs = document.getElementsByTagName("input");
+    console.log(inputs);
+
+    //获取页面中class为testClass的标签
+    var testClass = document.getElementsByClassName("testClass");
+    console.log(testClass);
+
+    //获取页面中name为testName的标签
+    var testName = document.getElementsByName("testName");
+    console.log(testName);
+</script>
+</body>
+</html>

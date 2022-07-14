@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    <li>张三</li>
+    <li>李四</li>
+    <li>王五</li>
+    <li>赵六</li>
+    <li>田七</li>
+</ul>
+
+<script type="text/javascript">
+    //创建一个标签
+    var newLi = document.createElement("li");
+    newLi.innerHTML = "小明";
+    console.log(newLi);
+    //将newLi添加到ul的最后方
+    var ul = document.getElementsByTagName("ul")[0];
+    ul.appendChild(newLi);
+    console.log(ul);
+    //将newLi插入到ul的第一个字标签的位置
+    var firstLi = ul.firstElementChild;
+    // ul.insertBefore(newLi,firstLi);
+    //将ul中的第一个子标签替换为newLi
+    // ul.replaceChild(newLi,firstLi);
+    //将ul中的第一个子标签删除
+    firstLi.remove();
+</script>
+</body>
+</html>
